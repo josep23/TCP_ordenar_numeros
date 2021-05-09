@@ -12,7 +12,6 @@ public class SrvTcpAdivina {
 	
 	int port;
 	NombreSecret ns;
-	
 	public SrvTcpAdivina(int port ) {
 		this.port = port;
 		ns = new NombreSecret(100);
@@ -27,7 +26,7 @@ public class SrvTcpAdivina {
 			while(true) { //esperar connexió del client i llançar thread
 				clientSocket = serverSocket.accept();
 				//Llançar Thread per establir la comunicació
-				ThreadSevidorAdivina FilServidor = new ThreadSevidorAdivina(clientSocket, ns);
+				ThreadSevidorAdivina FilServidor = new ThreadSevidorAdivina(clientSocket);
 				Thread client = new Thread(FilServidor);
 				client.start();
 			}
